@@ -16,6 +16,8 @@
  */
 package randomness;
 
+import java.awt.Color;
+
 /**
  *
  * @author Alonso del Arte
@@ -65,5 +67,8 @@ public class ExtendedRandom {
     }
         
     // TODO: Write tests for this
+    public static Color nextColor() {
+        return Color.BLACK;
+    }
 
 }
