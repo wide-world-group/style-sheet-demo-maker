@@ -18,15 +18,18 @@ package randomness;
 
 import java.awt.Color;
 
+import java.util.Random;
+
 /**
  *
  * @author Alonso del Arte
  */
 public class ExtendedRandom {
     
-    // TODO: Write tests for this
+    private static final Random RANDOM = new Random();
+    
     public static int nextInt() {
-        return 0;
+        return RANDOM.nextInt();
     }
     
     // TODO: Write tests for this
