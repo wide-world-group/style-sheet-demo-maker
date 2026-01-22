@@ -32,6 +32,8 @@ import javax.naming.ldap.Rdn;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+import static org.testframe.api.Asserters.assertThrows;
+
 /**
  * Tests of the ExtendedRandom class.
  * @author Alonso del Arte
@@ -54,7 +56,21 @@ public class ExtendedRandomTest {
         String msg = "Expected at least " + expected
                 + " distinct integers out of " + capacity + ", got " + actual;
         System.out.println(msg);
-        assert actual >= expected : msg;    }
+        assert actual >= expected : msg;
+    }
+    
+    @Test
+    public void testNextIntBoundedByZeroThrowsException() {
+        Throwable t = assertThrows(() -> {
+            int badResult = ExtendedRandom.nextInt(0);
+            System.out.println("Calling nextInt with bound 0 gave "
+                    + badResult);
+        }, IllegalArgumentException.class);
+        String excMsg = t.getMessage();
+        assert excMsg != null : "Message should not be null";
+        assert !excMsg.isEmpty() : "Message should not be empty";
+        System.out.println("\"" + excMsg + "\"");
+    }
 
     /**
      * Test of nextInt method, of class ExtendedRandom.
