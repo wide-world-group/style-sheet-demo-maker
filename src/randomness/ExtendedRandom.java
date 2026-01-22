@@ -42,4 +42,28 @@ public class ExtendedRandom {
         return "SORRY, NOT IMPLEMENTED YET";
     }
 
+    // TODO: Write tests for this
+    public static Character.UnicodeBlock chooseBMPBlock() {
+        return Character.UnicodeBlock.ADLAM;
+    }
+    
+    // TODO: Write tests for this
+    public static Character.UnicodeBlock 
+        chooseBMPBlockOtherThan(Character.UnicodeBlock block) {
+        return block;
+    }
+    
+    // TODO: Write tests for this
+    public static char chooseCharacterFromBlock(Character.UnicodeBlock block) {
+        return '?';
+    }
+
+    // TODO: Write tests for this
+    public static String 
+        makeStringWithBlockCharacters(Character.UnicodeBlock block) {
+        return "SORRY, NOT IMPLEMENTED YET";
+    }
+        
+    // TODO: Write tests for this
+
 }
