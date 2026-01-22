@@ -34,6 +34,10 @@ public class ExtendedRandom {
     
     // TODO: Write tests for this
     public static int nextInt(int bound) {
+        if (bound == 0) {
+            String excMsg = "Bound 0 is not valid";
+            throw new IllegalArgumentException(excMsg);
+        }
         return Integer.MAX_VALUE;
     }
     
