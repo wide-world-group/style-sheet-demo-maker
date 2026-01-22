@@ -20,7 +20,7 @@ package randomness;
  *
  * @author Alonso del Arte
  */
-public class RandomProvider {
+public class ExtendedRandom {
     
     // TODO: Write tests for this
     public static int nextInt() {
