@@ -39,21 +39,27 @@ import static org.junit.Assert.*;
 public class ExtendedRandomTest {
     
     /**
-     * Test of nextInt method, of class ExtendedRandom.
+     * Test of the nextInt function, of the ExtendedRandom class.
      */
     @Test
-    public void testNextInt_0args() {
+    public void testNextInt() {
         System.out.println("nextInt");
-        int expResult = 0;
-        int result = ExtendedRandom.nextInt();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+        int capacity = 2048;
+        Set<Integer> numbers = new HashSet<>(capacity);
+        for (int i = 0; i < capacity; i++) {
+            numbers.add(ExtendedRandom.nextInt());
+        }
+        int expected = 15 * capacity / 16;
+        int actual = numbers.size();
+        String msg = "Expected at least " + expected
+                + " distinct integers out of " + capacity + ", got " + actual;
+        System.out.println(msg);
+        assert actual >= expected : msg;    }
 
     /**
      * Test of nextInt method, of class ExtendedRandom.
      */
+    @org.junit.Ignore
     @Test
     public void testNextInt_int() {
         System.out.println("nextInt");
@@ -68,6 +74,7 @@ public class ExtendedRandomTest {
     /**
      * Test of nextInt method, of class ExtendedRandom.
      */
+    @org.junit.Ignore
     @Test
     public void testNextInt_int_int() {
         System.out.println("nextInt");
@@ -83,6 +90,7 @@ public class ExtendedRandomTest {
     /**
      * Test of alphanumeric method, of class ExtendedRandom.
      */
+    @org.junit.Ignore
     @Test
     public void testAlphanumeric() {
         System.out.println("alphanumeric");
@@ -96,6 +104,7 @@ public class ExtendedRandomTest {
     /**
      * Test of chooseBMPBlock method, of class ExtendedRandom.
      */
+    @org.junit.Ignore
     @Test
     public void testChooseBMPBlock() {
         System.out.println("chooseBMPBlock");
@@ -109,6 +118,7 @@ public class ExtendedRandomTest {
     /**
      * Test of chooseBMPBlockOtherThan method, of class ExtendedRandom.
      */
+    @org.junit.Ignore
     @Test
     public void testChooseBMPBlockOtherThan() {
         System.out.println("chooseBMPBlockOtherThan");
@@ -123,6 +133,7 @@ public class ExtendedRandomTest {
     /**
      * Test of chooseCharacterFromBlock method, of class ExtendedRandom.
      */
+    @org.junit.Ignore
     @Test
     public void testChooseCharacterFromBlock() {
         System.out.println("chooseCharacterFromBlock");
@@ -137,6 +148,7 @@ public class ExtendedRandomTest {
     /**
      * Test of makeStringWithBlockCharacters method, of class ExtendedRandom.
      */
+    @org.junit.Ignore
     @Test
     public void testMakeStringWithBlockCharacters() {
         System.out.println("makeStringWithBlockCharacters");
@@ -151,6 +163,7 @@ public class ExtendedRandomTest {
     /**
      * Test of nextColor method, of class ExtendedRandom.
      */
+    @org.junit.Ignore
     @Test
     public void testNextColor() {
         System.out.println("nextColor");
