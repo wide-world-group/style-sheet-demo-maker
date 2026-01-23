@@ -144,6 +144,24 @@ public class ExtendedRandomTest {
         fail("The test case is a prototype.");
     }
 
+    @Test
+    public void testAlphanumericRejectsNegativeLength() {
+        int badLength = -RANDOM.nextInt(1024) - 1;
+        Throwable t = assertThrows(() -> {
+            String badString = ExtendedRandom.alphanumeric(badLength);
+            System.out.println("Trying to get random alphanumeric of length "
+                    + badLength + " should not have given \"" + badString
+                    + "\"");
+        }, IllegalArgumentException.class);
+        String excMsg = t.getMessage();
+        assert excMsg != null : "Exception message should not be null";
+        System.out.println("\"" + excMsg + "\"");
+        String badLengthStr = Integer.toString(badLength);
+        String msg = "Exception message should include \"" + badLengthStr
+                + "\"";
+        assert excMsg.contains(badLengthStr) : msg;
+    }
+
     /**
      * Test of alphanumeric method, of class ExtendedRandom.
      */
@@ -152,7 +170,7 @@ public class ExtendedRandomTest {
     public void testAlphanumeric() {
         System.out.println("alphanumeric");
         String expResult = "";
-        String result = ExtendedRandom.alphanumeric();
+        String result = ExtendedRandom.alphanumeric(5);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
