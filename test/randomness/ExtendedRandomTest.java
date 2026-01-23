@@ -191,6 +191,16 @@ public class ExtendedRandomTest {
             assert isASCIILetterOrDigit(ch) : msg;
         }
     }
+    
+    @Test
+    public void testAlphanumericLengthZeroGivesEmptyString() {
+        int length = 0;
+        String expected = "";
+        String actual = ExtendedRandom.alphanumeric(length);
+        String message = "Length " + length + " should've given \"" + expected 
+                + "\"";
+        assertEquals(message, expected, actual);
+    }
 
     /**
      * Test of the alphanumeric function, of the ExtendedRandom class.
