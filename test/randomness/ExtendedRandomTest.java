@@ -172,18 +172,32 @@ public class ExtendedRandomTest {
         }
     }
 
+    private static boolean isASCIILetterOrDigit(char ch) {
+        boolean isDigit = ch >= '0' && ch <= '9';
+        boolean isUppercaseLetter = ch >= 'A' && ch <= 'Z';
+        boolean isLowercaseLetter = ch >= 'a' && ch <= 'z';
+        return isDigit || isUppercaseLetter || isLowercaseLetter;
+    }
+
     /**
      * Test of the alphanumeric function, of the ExtendedRandom class.
      */
-    @org.junit.Ignore
     @Test
     public void testAlphanumeric() {
         System.out.println("alphanumeric");
-        String expResult = "";
-        String result = ExtendedRandom.alphanumeric(5);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        int capacity = RANDOM.nextInt(64) + 36;
+        Set<String> strings = new HashSet<>(capacity);
+        int length = RANDOM.nextInt(16) + 4;
+        for (int i = 0; i < capacity; i++) {
+            String s = ExtendedRandom.alphanumeric(length);
+            strings.add(s);
+        }
+        int expected = 9 * capacity / 10;
+        int actual = strings.size();
+        String msg = "alphanumeric should've given at least " + expected
+                + " distinct, gave " + actual + " distinct";
+        System.out.println(msg);
+        assert actual >= expected : msg;
     }
 
     /**
