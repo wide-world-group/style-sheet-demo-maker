@@ -60,19 +60,27 @@ public class ExtendedRandom {
         }
     }
     
+    /**
+     * Gives a {@code String} of alphanumeric gibberish. Output will include at 
+     * least one ASCII digit, one ASCII uppercase letter and one ASCII lowercase 
+     * letter if the requested length is sufficient.
+     * @param length The length. For example, 24. May be 0, but there might not 
+     * be much point to that. Should not be negative.
+     * @return A {@code String} of the specified length. For example, 
+     * "85aPFqs92Gzfd4THK964U163". In the case of {@code length} being 0, always 
+     * the empty {@code String}.
+     * @throws IllegalArgumentException If {@code length} is negative.
+     */
     public static String alphanumeric(int length) {
         if (length < 0) {
             String excMsg = "Length " + length + " is not valid";
             throw new IllegalArgumentException(excMsg);
         }
-        if (length == 0) {
-            return "";
-        }
-        char[] characters = new char[length];
+        char[] value = new char[length];
         for (int i = 0; i < length; i++) {
-            characters[i] = chooseASCIIChar();
+            value[i] = chooseASCIIChar();
         }
-        return new String(characters);
+        return new String(value);
     }
 
     // TODO: Write tests for this
