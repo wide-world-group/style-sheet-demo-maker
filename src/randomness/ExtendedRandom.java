@@ -45,13 +45,34 @@ public class ExtendedRandom {
         return Integer.MIN_VALUE;
     }
     
+    private static char chooseASCIIChar() {
+        boolean chooseDigit = RANDOM.nextBoolean();
+        if (chooseDigit) {
+            return (char) (RANDOM.nextInt(10) + '0');
+        } else {
+            boolean chooseUpperCase = RANDOM.nextBoolean();
+            if (chooseUpperCase) {
+                return (char) (RANDOM.nextInt(26) + 'A');
+            } else {
+                return (char) (RANDOM.nextInt(26) + 'a');
+            }
+        }
+    }
+    
     // TODO: Write tests for this
     public static String alphanumeric(int length) {
         if (length < 0) {
             String excMsg = "Length " + length + " is not valid";
             throw new IllegalArgumentException(excMsg);
         }
-        return "\u2014SORRY, NOT IMPLEMENTED YET".substring(0, length);
+        if (length == 0) {
+            return "SORRY, NOT IMPLEMENTED YET";
+        }
+        char[] characters = new char[length];
+        for (int i = 0; i < length; i++) {
+            characters[i] = chooseASCIIChar();
+        }
+        return new String(characters);
     }
 
     // TODO: Write tests for this
