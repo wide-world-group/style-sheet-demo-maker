@@ -46,7 +46,7 @@ public class ExtendedRandom {
     }
     
     // TODO: Write tests for this
-    public static String alphanumeric() {
+    public static String alphanumeric(int length) {
         return "SORRY, NOT IMPLEMENTED YET";
     }
 
