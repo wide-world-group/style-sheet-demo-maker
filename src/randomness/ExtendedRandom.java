@@ -50,11 +50,12 @@ public class ExtendedRandom {
         if (chooseDigit) {
             return (char) (RANDOM.nextInt(10) + '0');
         } else {
+            int choice = RANDOM.nextInt(26);
             boolean chooseUpperCase = RANDOM.nextBoolean();
             if (chooseUpperCase) {
-                return (char) (RANDOM.nextInt(26) + 'A');
+                return (char) (choice + 'A');
             } else {
-                return (char) (RANDOM.nextInt(26) + 'a');
+                return (char) (choice + 'a');
             }
         }
     }
