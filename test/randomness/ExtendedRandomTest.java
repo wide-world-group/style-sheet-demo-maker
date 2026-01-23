@@ -162,8 +162,18 @@ public class ExtendedRandomTest {
         assert excMsg.contains(badLengthStr) : msg;
     }
 
+    @Test
+    public void testAlphanumericGivesStringOfSpecifiedLength() {
+        for (int expected = 1; expected < 21; expected++) {
+            String s = ExtendedRandom.alphanumeric(expected);
+            int actual = s.length();
+            String message = "\"" + s + "\" should be of requested length";
+            assertEquals(message, expected, actual);
+        }
+    }
+
     /**
-     * Test of alphanumeric method, of class ExtendedRandom.
+     * Test of the alphanumeric function, of the ExtendedRandom class.
      */
     @org.junit.Ignore
     @Test
