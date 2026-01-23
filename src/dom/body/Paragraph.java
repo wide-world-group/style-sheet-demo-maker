@@ -16,10 +16,21 @@
  */
 package dom.body;
 
+import dom.FormattedText;
+import dom.Plaintext;
+
 /**
  *
  * @author Alonso del Arte
  */
 public class Paragraph {
+    
+    public Paragraph(FormattedText text) {
+        // TODO: Write tests for this
+    }
+    
+    public Paragraph(Plaintext text) {
+        // TODO: Write tests for this
+    }
     
 }

@@ -16,10 +16,21 @@
  */
 package dom.body.table;
 
+import dom.FormattedText;
+import dom.Plaintext;
+
 /**
  *
  * @author Alonso del Arte
  */
 public class TableDatum {
+    
+    public TableDatum(FormattedText text) {
+        // TODO: Write tests for this
+    }
+    
+    public TableDatum(Plaintext text) {
+        // TODO: Write tests for this
+    }
     
 }

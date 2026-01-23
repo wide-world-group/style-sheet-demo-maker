@@ -22,4 +22,8 @@ package dom.body.table;
  */
 public class TableRow {
     
+    public TableRow(TableDatum... data) {
+        // TODO: Write tests for this
+    }
+    
 }

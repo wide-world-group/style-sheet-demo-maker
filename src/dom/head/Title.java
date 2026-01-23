@@ -16,10 +16,16 @@
  */
 package dom.head;
 
+import dom.Plaintext;
+
 /**
  *
  * @author Alonso del Arte
  */
 public class Title {
+    
+    public Title(Plaintext text) {
+        // TODO: Write tests for this
+    }
     
 }
