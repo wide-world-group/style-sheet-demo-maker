@@ -179,6 +179,19 @@ public class ExtendedRandomTest {
         return isDigit || isUppercaseLetter || isLowercaseLetter;
     }
 
+    @Test
+    public void testAlphanumericGivesStringOfASCIIAlphanumerics() {
+        int length = RANDOM.nextInt(16) + 4;
+        String s = ExtendedRandom.alphanumeric(length);
+        String msgPartA = "Character '";
+        String msgPartB = "' should be ASCII letter or digit";
+        char[] characters = s.toCharArray();
+        for (char ch : characters) {
+            String msg = msgPartA + ch + msgPartB;
+            assert isASCIILetterOrDigit(ch) : msg;
+        }
+    }
+
     /**
      * Test of the alphanumeric function, of the ExtendedRandom class.
      */
