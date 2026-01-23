@@ -51,7 +51,7 @@ public class ExtendedRandom {
             String excMsg = "Length " + length + " is not valid";
             throw new IllegalArgumentException(excMsg);
         }
-        return "SORRY, NOT IMPLEMENTED YET";
+        return "SORRY, NOT IMPLEMENTED YET".substring(0, length);
     }
 
     // TODO: Write tests for this
