@@ -55,4 +55,11 @@ public abstract class HTMLElement {
         return "SORRY, NOT IMPLEMENTED YET";
     }
     
+    protected HTMLElement() {}
+    
+    protected HTMLElement(String classif, String identif) {}
+    
+    private HTMLElement(boolean autofocusable, String classif, String identif, 
+            String lang, int tab, String tooltip) {}
+    
 }
