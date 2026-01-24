@@ -22,4 +22,8 @@ package dom;
  */
 public class Plaintext {
     
+    public Plaintext(String s) {
+        // TODO: Write tests for this
+    }
+    
 }

@@ -22,4 +22,8 @@ package dom;
  */
 public class FormattedText {
     
+    public FormattedText(String s) {
+        // TODO: Write tests for this
+    }
+    
 }
