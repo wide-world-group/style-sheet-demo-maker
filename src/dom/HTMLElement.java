@@ -22,4 +22,37 @@ package dom;
  */
 public abstract class HTMLElement {
     
+    // TODO: Write tests for this. Default false
+    public boolean autofocus() {
+        return true;
+    }
+    
+    // TODO: Write tests for this
+    // TODO: Write Javadoc explaining this corresponds to HTML class attribute
+    public String classification() {
+        return "SORRY, NOT IMPLEMENTED YET";
+    }
+    
+    // TODO: Write tests for this
+    // TODO: Write Javadoc explaining this corresponds to HTML id attribute
+    public String identification() {
+        return "SORRY, NOT IMPLEMENTED YET";
+    }
+    
+    // TODO: Write tests for this
+    // TODO: Write Javadoc explaining this corresponds to HTML lang attribute
+    public String language() {
+        return "SORRY, NOT IMPLEMENTED YET";
+    }
+    
+    // TODO: Write tests for this. Default zero?
+    public int tabindex() {
+        return Integer.MIN_VALUE;
+    }
+    
+    // TODO: Write tests for this. Default null?
+    public String title() {
+        return "SORRY, NOT IMPLEMENTED YET";
+    }
+    
 }
