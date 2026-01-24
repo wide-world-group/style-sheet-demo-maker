@@ -22,9 +22,8 @@ package dom;
  */
 public abstract class HTMLElement {
     
-    // TODO: Write tests for this. Default false
     public boolean autofocus() {
-        return true;
+        return false;
     }
     
     // TODO: Write tests for this
