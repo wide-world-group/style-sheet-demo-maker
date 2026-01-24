@@ -26,17 +26,16 @@ import static org.junit.Assert.*;
 public class HTMLElementTest {
     
     /**
-     * Test of autofocus method, of class HTMLElement.
+     * Test of the autofocus function, of the HTMLElement class.
      */
     @Test
     public void testAutofocus() {
         System.out.println("autofocus");
         HTMLElement instance = new HTMLElementImpl();
-        boolean expResult = false;
-        boolean result = instance.autofocus();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        boolean expected = false;
+        boolean actual = instance.autofocus();
+        String msg = "HTML element should not have autofocus by default";
+        assert expected == actual : msg;
     }
 
     /**
