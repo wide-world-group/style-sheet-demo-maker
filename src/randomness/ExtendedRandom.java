@@ -82,6 +82,11 @@ public class ExtendedRandom {
         }
         return new String(value);
     }
+    
+    // TODO: Write tests for this
+    public static String alphanumericWithLetterStart(int length) {
+        return "SORRY, NOT IMPLEMENTED YET";
+    }
 
     // TODO: Write tests for this
     public static Character.UnicodeBlock chooseBMPBlock() {
