@@ -43,6 +43,20 @@ public class ExtendedRandomTest {
     private static final Random RANDOM 
             = new Random(-System.currentTimeMillis() >> 4);
     
+    private static boolean isASCIIDigit(char ch) {
+        return ch >= '0' && ch <= '9';
+    }
+    
+    private static boolean isASCIILetter(char ch) {
+        boolean isUppercaseLetter = ch >= 'A' && ch <= 'Z';
+        boolean isLowercaseLetter = ch >= 'a' && ch <= 'z';
+        return isUppercaseLetter || isLowercaseLetter;
+    }
+    
+    private static boolean isASCIILetterOrDigit(char ch) {
+        return isASCIILetter(ch) || isASCIIDigit(ch);
+    }
+
     /**
      * Test of the nextInt function, of the ExtendedRandom class.
      */
@@ -170,13 +184,6 @@ public class ExtendedRandomTest {
             String message = "\"" + s + "\" should be of requested length";
             assertEquals(message, expected, actual);
         }
-    }
-
-    private static boolean isASCIILetterOrDigit(char ch) {
-        boolean isDigit = ch >= '0' && ch <= '9';
-        boolean isUppercaseLetter = ch >= 'A' && ch <= 'Z';
-        boolean isLowercaseLetter = ch >= 'a' && ch <= 'z';
-        return isDigit || isUppercaseLetter || isLowercaseLetter;
     }
 
     @Test
