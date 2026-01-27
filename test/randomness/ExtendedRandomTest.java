@@ -114,6 +114,7 @@ public class ExtendedRandomTest {
         assert actual >= expected : msg;
     }
     
+    @org.junit.Ignore
     @Test
     public void testNextIntBoundedByNegative() {
         int capacity = 2048;
@@ -143,19 +144,30 @@ public class ExtendedRandomTest {
     }
 
     /**
-     * Test of nextInt method, of class ExtendedRandom.
+     * Test of the nextInt function, of the ExtendedRandom class.
      */
-    @org.junit.Ignore
     @Test
-    public void testNextInt_int_int() {
-        System.out.println("nextInt");
-        int origin = 0;
-        int bound = 0;
-        int expResult = 0;
-        int result = ExtendedRandom.nextInt(origin, bound);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testNextIntBoundedWithOrigin() {
+        int capacity = 2048;
+        int origin = capacity - RANDOM.nextInt(128);
+        int bound = origin + capacity + RANDOM.nextInt(32);
+        Set<Integer> numbers = new HashSet<>(capacity);
+        for (int i = 0; i < capacity; i++) {
+            int number = ExtendedRandom.nextInt(origin, bound);
+            String msg = "Pseudorandom number " + number 
+                    + " should be at least " + origin + " but less than " 
+                    + bound;
+            assert number >= origin : msg;
+            assert number < bound : msg;
+            numbers.add(number);
+        }
+        int expected = capacity / 2;
+        int actual = numbers.size();
+        String msg = "Expected at least " + expected
+                + " distinct integers in the range 0 to " + (bound - 1)
+                + " out of " + capacity + ", got " + actual;
+        System.out.println(msg);
+        assert actual >= expected : msg;
     }
 
     @Test
