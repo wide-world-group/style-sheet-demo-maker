@@ -32,6 +32,7 @@ import javax.naming.ldap.Rdn;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+import static org.testframe.api.Asserters.assertMinimum;
 import static org.testframe.api.Asserters.assertThrows;
 
 /**
@@ -68,12 +69,12 @@ public class ExtendedRandomTest {
         for (int i = 0; i < capacity; i++) {
             numbers.add(ExtendedRandom.nextInt());
         }
-        int expected = 15 * capacity / 16;
+        int minimum = 15 * capacity / 16;
         int actual = numbers.size();
-        String msg = "Expected at least " + expected
+        String msg = "Expected at least " + minimum
                 + " distinct integers out of " + capacity + ", got " + actual;
         System.out.println(msg);
-        assert actual >= expected : msg;
+        assertMinimum(minimum, actual, msg);
     }
     
     @Test
@@ -134,13 +135,13 @@ public class ExtendedRandomTest {
                 throw new AssertionError(errMsg, iae);
             }
         }
-        int expected = capacity / 2;
+        int minimum = capacity / 2;
         int actual = numbers.size();
-        String msg = "Expected at least " + expected
+        String msg = "Expected at least " + minimum
                 + " distinct integers in the range " + (bound - 1)
                 + " to 0 out of " + capacity + ", got " + actual;
         System.out.println(msg);
-        assert actual >= expected : msg;
+        assertMinimum(minimum, actual, msg);
     }
 
     /**
@@ -161,13 +162,13 @@ public class ExtendedRandomTest {
             assert number < bound : msg;
             numbers.add(number);
         }
-        int expected = capacity / 2;
+        int minimum = capacity / 2;
         int actual = numbers.size();
-        String msg = "Expected at least " + expected
+        String msg = "Expected at least " + minimum
                 + " distinct integers in the range 0 to " + (bound - 1)
                 + " out of " + capacity + ", got " + actual;
         System.out.println(msg);
-        assert actual >= expected : msg;
+        assertMinimum(minimum, actual, msg);
     }
 
     @Test
@@ -234,12 +235,12 @@ public class ExtendedRandomTest {
             String s = ExtendedRandom.alphanumeric(length);
             strings.add(s);
         }
-        int expected = 9 * capacity / 10;
+        int minimum = 9 * capacity / 10;
         int actual = strings.size();
-        String msg = "alphanumeric should've given at least " + expected
+        String msg = "alphanumeric should've given at least " + minimum
                 + " distinct, gave " + actual + " distinct";
         System.out.println(msg);
-        assert actual >= expected : msg;
+        assertMinimum(minimum, actual, msg);
     }
 
     /**
