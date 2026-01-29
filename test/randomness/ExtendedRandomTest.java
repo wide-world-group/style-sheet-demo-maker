@@ -269,6 +269,19 @@ public class ExtendedRandomTest {
         }
     }
 
+    @Test
+    public void testAlphanumericWithLetterStartGivesASCIIAlphanumerics() {
+        int length = RANDOM.nextInt(16) + 4;
+        String s = ExtendedRandom.alphanumericWithLetterStart(length);
+        String msgPartA = "Character '";
+        String msgPartB = "' should be ASCII letter or digit";
+        char[] characters = s.toCharArray();
+        for (char ch : characters) {
+            String msg = msgPartA + ch + msgPartB;
+            assert isASCIILetterOrDigit(ch) : msg;
+        }
+    }
+    
     /**
      * Test of chooseBMPBlock method, of class ExtendedRandom.
      */
