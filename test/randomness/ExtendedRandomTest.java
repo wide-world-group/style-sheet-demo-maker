@@ -240,6 +240,25 @@ public class ExtendedRandomTest {
         assertMinimum(minimum, actual, msg);
     }
 
+    @Test
+    public void testAlphanumericWithLetterStartRejectsNegativeLength() {
+        int badLength = -RANDOM.nextInt(1024) - 1;
+        Throwable t = assertThrows(() -> {
+            String badString 
+                    = ExtendedRandom.alphanumericWithLetterStart(badLength);
+            System.out.println("Trying to get random alphanumeric of length "
+                    + badLength + " should not have given \"" + badString
+                    + "\"");
+        }, IllegalArgumentException.class);
+        String excMsg = t.getMessage();
+        assert excMsg != null : "Exception message should not be null";
+        System.out.println("\"" + excMsg + "\"");
+        String badLengthStr = Integer.toString(badLength);
+        String msg = "Exception message should include \"" + badLengthStr
+                + "\"";
+        assert excMsg.contains(badLengthStr) : msg;
+    }
+
     /**
      * Test of chooseBMPBlock method, of class ExtendedRandom.
      */
