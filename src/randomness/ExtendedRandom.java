@@ -88,7 +88,7 @@ public class ExtendedRandom {
             String excMsg = "Length " + length + " is not valid";
             throw new IllegalArgumentException(excMsg);
         }
-        return "SORRY, NOT IMPLEMENTED YET".substring(0, length);
+        return "47SORRY1NOT2IMPLEMENTED3YET56890".substring(0, length);
     }
 
     // TODO: Write tests for this
