@@ -19,6 +19,8 @@ package dom;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+import randomness.ExtendedRandom;
+
 /**
  * Tests of the HTMLElement class.
  * @author Alonso del Arte
@@ -39,18 +41,17 @@ public class HTMLElementTest {
     }
 
     /**
-     * Test of classification method, of class HTMLElement.
+     * Test of the classification function, of the HTMLElement class.
      */
-    @org.junit.Ignore
     @Test
     public void testClassification() {
         System.out.println("classification");
-        HTMLElement instance = new HTMLElementImpl();
-        String expResult = "";
-        String result = instance.classification();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        int length = ExtendedRandom.nextInt(4, 8);
+        String expected = ExtendedRandom.alphanumericWithLetterStart(length);
+        HTMLElement instance = new HTMLElementImpl(expected, 
+                ExtendedRandom.alphanumericWithLetterStart(length));
+        String actual = instance.classification();
+        assertEquals(expected, actual);
     }
 
     /**
@@ -114,6 +115,13 @@ public class HTMLElementTest {
     }
 
     private class HTMLElementImpl extends HTMLElement {
+        
+        protected HTMLElementImpl() {}
+        
+        protected HTMLElementImpl(String classif, String identif) {
+            super(classif, identif);
+        }
+        
     }
     
 }
