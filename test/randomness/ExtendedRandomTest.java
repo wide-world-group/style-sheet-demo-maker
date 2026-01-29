@@ -304,6 +304,28 @@ public class ExtendedRandomTest {
     }
 
     /**
+     * Test of the alphanumericWithLetterStart function, of the ExtendedRandom 
+     * class.
+     */
+    @Test
+    public void testAlphanumericWithLetterStart() {
+        System.out.println("alphanumericWithLetterStart");
+        int capacity = RANDOM.nextInt(64) + 36;
+        Set<String> strings = new HashSet<>(capacity);
+        int length = RANDOM.nextInt(16) + 4;
+        for (int i = 0; i < capacity; i++) {
+            String s = ExtendedRandom.alphanumericWithLetterStart(length);
+            strings.add(s);
+        }
+        int minimum = 9 * capacity / 10;
+        int actual = strings.size();
+        String msg = "alphanumericWithLetterStart should've given at least " 
+                + minimum + " distinct, gave " + actual + " distinct";
+        System.out.println(msg);
+        assertMinimum(minimum, actual, msg);
+    }
+
+    /**
      * Test of chooseBMPBlock method, of class ExtendedRandom.
      */
     @org.junit.Ignore
