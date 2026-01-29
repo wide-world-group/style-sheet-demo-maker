@@ -259,6 +259,16 @@ public class ExtendedRandomTest {
         assert excMsg.contains(badLengthStr) : msg;
     }
 
+    @Test
+    public void testAlphanumericWithLetterStartGivesStringOfSpecifiedLength() {
+        for (int expected = 1; expected < 21; expected++) {
+            String s = ExtendedRandom.alphanumericWithLetterStart(expected);
+            int actual = s.length();
+            String message = "\"" + s + "\" should be of requested length";
+            assertEquals(message, expected, actual);
+        }
+    }
+
     /**
      * Test of chooseBMPBlock method, of class ExtendedRandom.
      */
