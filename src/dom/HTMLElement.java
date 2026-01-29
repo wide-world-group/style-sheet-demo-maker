@@ -22,14 +22,15 @@ package dom;
  */
 public abstract class HTMLElement {
     
+    private final String attrClass;
+    
     public boolean autofocus() {
         return false;
     }
     
-    // TODO: Write tests for this
     // TODO: Write Javadoc explaining this corresponds to HTML class attribute
     public String classification() {
-        return "SORRY, NOT IMPLEMENTED YET";
+        return this.attrClass;
     }
     
     // TODO: Write tests for this
@@ -54,11 +55,17 @@ public abstract class HTMLElement {
         return "SORRY, NOT IMPLEMENTED YET";
     }
     
-    protected HTMLElement() {}
+    protected HTMLElement() {
+        this("? WHAT SHOULD THIS BE ?", "? SHOULD THIS BE ?");
+    }
     
-    protected HTMLElement(String classif, String identif) {}
+    protected HTMLElement(String classif, String identif) {
+        this(false, classif, identif, null, 0, null);
+    }
     
     private HTMLElement(boolean autofocusable, String classif, String identif, 
-            String lang, int tab, String tooltip) {}
+            String lang, int tab, String tooltip) {
+        this.attrClass = classif;
+    }
     
 }
