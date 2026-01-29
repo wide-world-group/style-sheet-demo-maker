@@ -270,6 +270,17 @@ public class ExtendedRandomTest {
     }
 
     @Test
+    public void testAlphanumericWithLetterStartHasLetterStart() {
+        int length = RANDOM.nextInt(16) + 4;
+        String s = ExtendedRandom.alphanumericWithLetterStart(length);
+        String msgPartA = "Character '";
+        String msgPartB = "' should be ASCII letter or digit";
+        char ch = s.charAt(0);
+        String msg = msgPartA + ch + msgPartB;
+        assert isASCIILetter(ch) : msg;
+    }
+    
+    @Test
     public void testAlphanumericWithLetterStartGivesASCIIAlphanumerics() {
         int length = RANDOM.nextInt(16) + 4;
         String s = ExtendedRandom.alphanumericWithLetterStart(length);
