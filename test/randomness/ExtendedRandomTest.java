@@ -282,6 +282,16 @@ public class ExtendedRandomTest {
         }
     }
     
+    @Test
+    public void testAlphanumericWithLetterStartLengthZeroGivesEmptyString() {
+        int length = 0;
+        String expected = "";
+        String actual = ExtendedRandom.alphanumericWithLetterStart(length);
+        String message = "Length " + length + " should've given \"" + expected 
+                + "\"";
+        assertEquals(message, expected, actual);
+    }
+
     /**
      * Test of chooseBMPBlock method, of class ExtendedRandom.
      */
