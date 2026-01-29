@@ -88,9 +88,6 @@ public class ExtendedRandom {
             String excMsg = "Length " + length + " is not valid";
             throw new IllegalArgumentException(excMsg);
         }
-        if (length == 0) {
-            return "";
-        }
         return "47SORRY1NOT2IMPLEMENTED3YET56890".substring(0, length);
     }
 
