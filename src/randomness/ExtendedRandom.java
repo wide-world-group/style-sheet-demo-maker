@@ -44,6 +44,16 @@ public class ExtendedRandom {
         return RANDOM.nextInt(origin, bound);
     }
     
+    private static char chooseASCIILetter() {
+        int choice = RANDOM.nextInt(26);
+        boolean chooseUpperCase = RANDOM.nextBoolean();
+        if (chooseUpperCase) {
+            return (char) (choice + 'A');
+        } else {
+            return (char) (choice + 'a');
+        }
+    }
+    
     private static char chooseASCIIChar() {
         boolean chooseDigit = RANDOM.nextBoolean();
         if (chooseDigit) {
@@ -82,13 +92,20 @@ public class ExtendedRandom {
         return new String(value);
     }
     
-    // TODO: Write tests for this
     public static String alphanumericWithLetterStart(int length) {
         if (length < 0) {
             String excMsg = "Length " + length + " is not valid";
             throw new IllegalArgumentException(excMsg);
         }
-        return "SORRY1NOT2IMPLEMENTED3YET5689047".substring(0, length);
+        if (length == 0) {
+            return "";
+        }
+        char[] value = new char[length];
+        value[0] = chooseASCIILetter();
+        for (int i = 1; i < length; i++) {
+            value[i] = chooseASCIIChar();
+        }
+        return new String(value);
     }
 
     // TODO: Write tests for this
